@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 224 28% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 28% 12%;
+  --muted: 214 32% 92%;
+  --muted-foreground: 222 11% 40%;
+  --border: 214 25% 84%;
+  --primary: 218 100% 52%;
+  --primary-foreground: 0 0% 100%;
+}
+
+.dark {
+  --background: 225 28% 6%;
+  --foreground: 210 40% 98%;
+  --card: 224 28% 10%;
+  --card-foreground: 210 40% 98%;
+  --muted: 224 22% 16%;
+  --muted-foreground: 218 12% 70%;
+  --border: 222 20% 22%;
+  --primary: 198 95% 62%;
+  --primary-foreground: 225 28% 6%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  button,
+  a,
+  input,
+  textarea {
+    cursor: none;
+  }
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.25);
+}
+
+.mesh-bg {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(33, 201, 181, 0.2), transparent 34%),
+    radial-gradient(circle at 76% 12%, rgba(250, 115, 95, 0.16), transparent 30%),
+    radial-gradient(circle at 64% 76%, rgba(245, 186, 90, 0.12), transparent 26%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
