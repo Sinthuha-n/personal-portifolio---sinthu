@@ -92,6 +92,8 @@ const githubProfile = {
   recentEvents: 30
 };
 
+const linkedinUrl = "https://www.linkedin.com/in/sinthuha-nadesan-16nn11";
+
 const githubRepos = [
   {
     name: "personal-portifolio---sinthu",
@@ -523,7 +525,7 @@ export default function Home() {
             {[
               { icon: Mail, label: "Email", value: "nadasinthu09@gmail.com", href: "mailto:nadasinthu09@gmail.com" },
               { icon: Phone, label: "Phone", value: "+94 75 802 1244", href: "tel:+94758021244" },
-              { icon: Linkedin, label: "LinkedIn", value: "Sinthuha Nadesan" },
+              { icon: Linkedin, label: "LinkedIn", value: "Sinthuha Nadesan", href: linkedinUrl },
               { icon: Github, label: "GitHub", value: "Sinthuha-n", href: githubProfile.url },
               { icon: MapPin, label: "Location", value: "Colombo, Sri Lanka" }
             ].map(({ icon: ContactIcon, label, value, href }) => {
