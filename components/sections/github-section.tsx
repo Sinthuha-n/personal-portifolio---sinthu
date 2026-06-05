@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export function GithubSection() {
   return (
-    <section id="github" className="bg-muted/45 px-4 py-24 sm:px-6 lg:px-8">
+    <section id="github" className="bg-muted/45 px-4 py-16 sm:px-6 lg:px-8">
       <SectionHeader eyebrow="GitHub" title="Open engineering activity at a glance." copy="A profile-focused view of Sinthuha's public GitHub presence, recent repositories, contribution rhythm, and project activity." />
       <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[1.2fr_0.8fr]">
         <Card className="p-6">

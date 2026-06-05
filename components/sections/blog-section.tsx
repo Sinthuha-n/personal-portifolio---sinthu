@@ -21,7 +21,7 @@ export function BlogSection() {
   );
 
   return (
-    <section id="blog" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="blog" className="px-4 py-16 sm:px-6 lg:px-8">
       <SectionHeader eyebrow="Blog" title="Technical writing from Medium." copy="Articles published by Sinthuha Nadesan on Medium, with searchable categories and direct links to read the full posts." />
       <div className="mx-auto max-w-7xl">
         <div className="mb-6 flex flex-col gap-3 sm:flex-row">

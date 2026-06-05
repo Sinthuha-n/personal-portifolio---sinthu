@@ -6,7 +6,7 @@ import { timelineItems } from "@/data/portfolio";
 
 export function AboutSection() {
   return (
-    <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="about" className="px-4 py-16 sm:px-6 lg:px-8">
       <SectionHeader eyebrow="About" title="A builder with strong product instincts." copy="Motivated IT undergraduate with a strong foundation in full-stack development, specializing in Java, Spring Boot, React, REST APIs, and database-backed application design." />
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <Card className="p-6">

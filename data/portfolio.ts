@@ -1,4 +1,4 @@
-export const navItems = ["About", "Skills", "Projects", "Blog", "GitHub", "Contact"];
+export const navItems = ["About", "Skills", "Building", "Projects", "Blog", "GitHub", "Contact"];
 
 export const typingWords = [
   "Java Developer",
@@ -8,34 +8,101 @@ export const typingWords = [
   "Problem Solver"
 ];
 
-export const skills = [
-  { group: "Programming Languages", items: [["Java", 88], ["JavaScript", 84], ["Python", 74], ["C", 68]] },
-  { group: "Frontend", items: [["React", 86], ["HTML5", 92], ["CSS3", 88], ["Responsive UI", 82]] },
-  { group: "Backend", items: [["Spring Boot", 78], ["REST API Fundamentals", 86], ["Node.js", 76], ["Express.js", 74]] },
-  { group: "Database", items: [["MySQL", 82], ["PostgreSQL", 76], ["MongoDB", 74]] },
-  { group: "Tools", items: [["Git", 84], ["GitHub", 85], ["Postman", 88], ["Agile Practices", 76]] }
+export const skillSystems = [
+  {
+    group: "Product Frontend",
+    focus: "Interfaces, dashboards, responsive product flows",
+    tools: ["React", "Next.js", "React Native", "HTML5", "CSS3", "Tailwind CSS"]
+  },
+  {
+    group: "Backend Engineering",
+    focus: "APIs, authentication, service logic, team workflows",
+    tools: ["Java", "Spring Boot", "Node.js", "Express.js", "REST APIs", "Postman"]
+  },
+  {
+    group: "Data & Persistence",
+    focus: "Relational models, CRUD systems, query fundamentals",
+    tools: ["PostgreSQL", "MySQL", "MongoDB", "SQL", "Database Design"]
+  },
+  {
+    group: "Engineering Workflow",
+    focus: "Version control, collaboration, testing, delivery habits",
+    tools: ["Git", "GitHub", "Agile Practices", "Pull Requests", "API Testing", "VS Code"]
+  }
 ] as const;
 
-export const projects = [
+export const featuredProject = {
+  name: "Planora",
+  subtitle: "Full Stack Project Management Platform",
+  status: "Hero Project",
+  summary:
+    "A product management workspace designed around the workflows software teams use every day: Kanban planning, sprint execution, timeline visibility, and mobile access.",
+  problem:
+    "Student and startup teams often manage work across scattered chats, spreadsheets, and issue lists. Planora brings planning, task ownership, sprint status, and mobile updates into one product flow.",
+  achievements: [
+    "Designed Kanban-first workflow for task visibility and team coordination",
+    "Structured sprint management around backlog, active work, review, and completion",
+    "Mapped timeline tracking for progress reviews and delivery planning",
+    "Planned Spring Boot REST architecture with PostgreSQL-backed data models",
+    "Included React Native mobile app direction for on-the-go project updates"
+  ],
+  challenges: [
+    "Keeping task state consistent across board, sprint, and timeline views",
+    "Designing a clean API boundary between product UI and backend workflow logic",
+    "Making dense project information scannable for repeated daily use"
+  ],
+  metrics: [
+    ["4", "Core modules"],
+    ["3", "Client surfaces"],
+    ["REST", "API architecture"],
+    ["PostgreSQL", "Primary database"]
+  ],
+  tech: ["Spring Boot", "Next.js", "React Native", "PostgreSQL", "REST APIs", "GitHub"],
+  links: {
+    github: "https://github.com/Sinthuha-n/project_management_app",
+    demo: "https://github.com/Sinthuha-n/project_management_app",
+    caseStudy: "https://github.com/Sinthuha-n/project_management_app"
+  }
+} as const;
+
+export const supportingProjects = [
   {
     name: "BookNest",
     subtitle: "Full Stack MERN Web Application",
     description:
       "A book enthusiast platform for exploring books and managing reading lists, built collaboratively in a 5-member team with secure authentication, admin/user dashboards, and responsive UI.",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Git"],
-    accent: "from-rose-500 to-amber-300",
-    features: ["Secure Auth", "Admin Dashboard", "User Dashboard", "Reading Lists"],
-    actions: ["Live Demo", "GitHub"]
+    features: ["Secure authentication", "Admin/user dashboards", "Responsive reading-list UI", "Team-based delivery"],
+    impact: "Practiced full-stack collaboration, modular MERN architecture, and Git-based team workflow.",
+    github: "https://github.com/Sinthuha-n"
   },
   {
-    name: "Planora",
-    subtitle: "Project Management Platform",
+    name: "Student Management System",
+    subtitle: "Java CRUD Application",
     description:
-      "A planned full stack project management platform concept for Kanban workflows, sprint planning, timelines, task ownership, and team collaboration.",
-    tech: ["Spring Boot", "Next.js", "PostgreSQL", "REST APIs"],
-    accent: "from-sky-500 to-emerald-400",
-    features: ["Kanban Board", "Sprint Planning", "Timeline Tracking", "Team Workflows"],
-    actions: ["Case Study"]
+      "A focused Java project for practicing create, read, update, and delete workflows with a simple student-record domain.",
+    tech: ["Java", "CRUD", "OOP", "Database Basics"],
+    features: ["Entity modeling", "Record management", "OOP practice", "Data operations"],
+    impact: "Strengthened backend fundamentals before moving into larger Spring Boot systems.",
+    github: "https://github.com/Sinthuha-n/Student_Managemant"
+  }
+] as const;
+
+export const buildFocus = [
+  {
+    title: "Planora product system",
+    detail: "Turning project management workflows into a polished full-stack product with web, mobile, and API layers.",
+    stack: ["Next.js", "Spring Boot", "React Native", "PostgreSQL"]
+  },
+  {
+    title: "Engineering writing",
+    detail: "Publishing practical notes on Git, software development, AI-assisted coding, and technology habits.",
+    stack: ["Medium", "Git", "Software Engineering"]
+  },
+  {
+    title: "Backend depth",
+    detail: "Building stronger foundations in REST design, SQL modeling, API testing, and production-ready Java services.",
+    stack: ["Java", "Spring Boot", "Postman", "SQL"]
   }
 ] as const;
 
@@ -121,10 +188,11 @@ export const githubActivity = [
 ];
 
 export const timelineItems = [
-  ["2024", "Frontend Development Certification", "Built a polished foundation in responsive user interfaces."],
-  ["2025", "SQL Career Track, HackerRank SQL, and Postman API Fundamental", "Strengthened database querying, SQL problem solving, and API testing workflows."],
-  ["2028", "Expected Graduation", "BSc (Hons) in Information Technology at University of Moratuwa, Sri Lanka."],
-  ["Current", "Seeking a Software Engineering Internship", "Ready to contribute to high-impact development teams with full-stack project experience."]
+  ["Dec 2024", "Frontend Development Certification", "Built a foundation in responsive interfaces and web application structure."],
+  ["Jan 2025", "SQL Career Track", "Strengthened relational querying, schema thinking, and database problem solving."],
+  ["Sep 2025", "Postman API Fundamental", "Improved API testing habits for REST endpoints and backend integration work."],
+  ["2025 - 2026", "University Projects", "Applied OOP, DBMS, data structures, software engineering, and web development coursework."],
+  ["Current", "Software Engineering Journey", "Building full-stack projects and preparing for internship teams that value learning velocity and execution."]
 ] as const;
 
 export const coursework = [

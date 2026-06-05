@@ -9,6 +9,7 @@ import { AboutSection } from "@/components/sections/about-section";
 import { AchievementsSection } from "@/components/sections/achievements-section";
 import { BlogSection } from "@/components/sections/blog-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { BuildingSection } from "@/components/sections/building-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { GithubSection } from "@/components/sections/github-section";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -28,6 +29,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      <BuildingSection />
       <ProjectsSection />
       <ExperienceSection />
       <BlogSection />

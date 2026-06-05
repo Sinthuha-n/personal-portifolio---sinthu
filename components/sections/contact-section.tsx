@@ -51,7 +51,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="contact" className="px-4 py-16 sm:px-6 lg:px-8">
       <SectionHeader eyebrow="Contact" title="Let’s build something useful." copy="For software engineering internships, full-stack development work, and collaborative project opportunities, send a focused message and start the conversation." />
       <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="grid gap-4">

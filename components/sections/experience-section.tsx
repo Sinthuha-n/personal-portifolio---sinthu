@@ -1,18 +1,35 @@
+import { ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/common/section-header";
-import { Card } from "@/components/ui";
-import { coursework } from "@/data/portfolio";
+import { Badge, Card } from "@/components/ui";
+import { timelineItems } from "@/data/portfolio";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="bg-muted/45 px-4 py-24 sm:px-6 lg:px-8">
-      <SectionHeader eyebrow="Experience" title="Developer journey shaped by practice." copy="A focused timeline spanning university coursework, full-stack project work, certifications, teamwork, and software engineering fundamentals." />
-      <div className="mx-auto grid max-w-5xl gap-4">
-        {coursework.map((item, index) => (
-          <Card key={item} className="flex items-center gap-4 p-5">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-foreground text-background">{index + 1}</div>
-            <div><h3 className="font-semibold">{item}</h3><p className="text-sm text-muted-foreground">Relevant coursework and project practice from the University of Moratuwa IT degree and BookNest team development.</p></div>
-          </Card>
-        ))}
+    <section id="experience" className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
+      <SectionHeader
+        eyebrow="Journey Timeline"
+        title="A software engineering path with momentum."
+        copy="Certifications, coursework, API practice, and project work are framed as a clear progression toward internship-ready engineering."
+      />
+      <div className="mx-auto max-w-5xl">
+        <div className="relative grid gap-4">
+          <div className="absolute left-5 top-6 hidden h-[calc(100%-48px)] w-px bg-border md:block" />
+          {timelineItems.map(([date, title, copy], index) => (
+            <Card key={title} className="relative grid gap-4 p-5 md:grid-cols-[120px_1fr] md:pl-16">
+              <div className="absolute left-3 top-6 hidden h-4 w-4 rounded-full border border-primary bg-background md:block" />
+              <div>
+                <Badge>{date}</Badge>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold">{title}</h3>
+                <p className="mt-2 leading-7 text-muted-foreground">{copy}</p>
+                {index === timelineItems.length - 1 ? (
+                  <div className="mt-4 flex items-center gap-2 text-sm font-medium text-primary">Ready for internship teams <ArrowRight className="h-4 w-4" /></div>
+                ) : null}
+              </div>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );

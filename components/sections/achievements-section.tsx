@@ -5,7 +5,7 @@ import { certifications } from "@/data/portfolio";
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="px-4 py-24 sm:px-6 lg:px-8">
+    <section id="achievements" className="px-4 py-16 sm:px-6 lg:px-8">
       <SectionHeader eyebrow="Achievements" title="Credentials that support the story." copy="Certificate cards highlight focused learning in frontend development, SQL, API fundamentals, and problem solving." />
       <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-4">
         {certifications.map((item) => (
