@@ -224,6 +224,8 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [contactError, setContactError] = useState("");
 
   useEffect(() => {
     const timer = window.setInterval(() => setWordIndex((current) => (current + 1) % typingWords.length), 1900);
@@ -240,22 +242,34 @@ export default function Home() {
     [blogFilter, blogSearch]
   );
 
-  function handleContact(event: FormEvent<HTMLFormElement>) {
+  async function handleContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const subject = String(formData.get("subject") ?? "Portfolio contact");
-    const message = String(formData.get("message") ?? "");
-    const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      "",
-      message
-    ].join("\n");
+    setSending(true);
+    setSent(false);
+    setContactError("");
 
-    window.location.href = `mailto:nadasinthu09@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    const formData = new FormData(event.currentTarget);
+    formData.append("_template", "table");
+    formData.append("_subject", String(formData.get("subject") ?? "Portfolio contact"));
+    formData.append("_captcha", "false");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/nadasinthu09@gmail.com", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error("Message service failed");
+      }
+
+      event.currentTarget.reset();
+      setSent(true);
+    } catch {
+      setContactError("Your message could not be sent. Please try again later.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -588,7 +602,9 @@ export default function Home() {
               <div className="grid gap-4 sm:grid-cols-2"><input required name="name" placeholder="Name" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" /><input required name="email" type="email" placeholder="Email" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" /></div>
               <input required name="subject" placeholder="Subject" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" />
               <textarea required name="message" placeholder="Message" rows={6} className="rounded-md border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
-              <Button type="submit"><Send className="h-4 w-4" />{sent ? "Opening Email" : "Send Message"}</Button>
+              {sent ? <p className="rounded-md border border-emerald-500/40 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-500">Your message has been sent successfully.</p> : null}
+              {contactError ? <p className="rounded-md border border-rose-500/40 bg-rose-500/10 px-4 py-3 text-sm text-rose-500">{contactError}</p> : null}
+              <Button type="submit" disabled={sending}><Send className="h-4 w-4" />{sending ? "Sending..." : "Send Message"}</Button>
             </form>
           </Card>
         </div>
