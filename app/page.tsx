@@ -78,6 +78,58 @@ const blogs = [
 
 const categories = ["All", "Web Development", "Software Engineering", "Cloud Computing", "Artificial Intelligence", "Database Systems", "Career Growth"];
 
+const githubProfile = {
+  name: "Sinthuha Nadesan",
+  username: "Sinthuha-n",
+  url: "https://github.com/Sinthuha-n",
+  avatar: "https://avatars.githubusercontent.com/u/208053821?v=4",
+  bio: "IT undergraduate at University of Moratuwa, passionate about coding and innovation. Exploring the tech world.",
+  company: "University of Moratuwa",
+  location: "Colombo, Sri Lanka",
+  repositories: 15,
+  followers: 7,
+  following: 15,
+  recentEvents: 30
+};
+
+const githubRepos = [
+  {
+    name: "personal-portifolio---sinthu",
+    description: "Personal portfolio website built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.",
+    language: "TypeScript",
+    updated: "Updated Jun 5, 2026",
+    url: "https://github.com/Sinthuha-n/personal-portifolio---sinthu"
+  },
+  {
+    name: "project_management_app",
+    description: "Project management application work connected to responsive Kanban and app workflow improvements.",
+    language: "TypeScript",
+    updated: "Updated May 10, 2026",
+    url: "https://github.com/Sinthuha-n/project_management_app"
+  },
+  {
+    name: "SpringBoot",
+    description: "Learning and practicing Spring Boot fundamentals for backend development.",
+    language: "Java",
+    updated: "Updated Dec 3, 2025",
+    url: "https://github.com/Sinthuha-n/SpringBoot"
+  },
+  {
+    name: "Student_Managemant",
+    description: "A simple student management system built using CRUD operations.",
+    language: "Java",
+    updated: "Updated Dec 1, 2025",
+    url: "https://github.com/Sinthuha-n/Student_Managemant"
+  }
+];
+
+const githubActivity = [
+  "Pushed updates to personal-portifolio---sinthu",
+  "Merged pull request #290 in axzellinnovations/project_management_app",
+  "Opened responsive-mobile-kanban pull request work",
+  "Created responsive branch for portfolio improvements"
+];
+
 function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -365,19 +417,81 @@ export default function Home() {
       </section>
 
       <section id="github" className="bg-muted/45 px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="GitHub" title="Open engineering activity at a glance." copy="A portfolio-ready integration area for contribution graph, repositories, stars, followers, recent commits, pinned projects, and stat cards." />
+        <SectionHeader eyebrow="GitHub" title="Open engineering activity at a glance." copy="A profile-focused view of Sinthuha's public GitHub presence, recent repositories, contribution rhythm, and project activity." />
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[1.2fr_0.8fr]">
           <Card className="p-6">
-            <div className="mb-5 flex items-center gap-3"><Github className="h-5 w-5" /><h3 className="text-xl font-semibold">Contribution Graph</h3></div>
-            <div className="grid grid-cols-12 gap-2">
-              {Array.from({ length: 84 }).map((_, index) => <div key={index} className={cn("aspect-square rounded-sm", index % 7 === 0 ? "bg-emerald-400" : index % 5 === 0 ? "bg-sky-500" : index % 3 === 0 ? "bg-rose-400" : "bg-muted")} />)}
+            <div className="mb-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+              <a href={githubProfile.url} target="_blank" rel="noreferrer" className="flex items-center gap-4 rounded-lg p-1 transition hover:bg-muted">
+                <img src={githubProfile.avatar} alt={`${githubProfile.name} GitHub avatar`} className="h-16 w-16 rounded-lg border border-border object-cover" />
+                <div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-semibold">{githubProfile.name}</h3>
+                    <ExternalLink className="h-4 w-4 text-muted-foreground" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">@{githubProfile.username}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{githubProfile.company} · {githubProfile.location}</p>
+                </div>
+              </a>
+              <Button asChild variant="secondary">
+                <a href={githubProfile.url} target="_blank" rel="noreferrer"><Github className="h-4 w-4" />Open Profile</a>
+              </Button>
+            </div>
+            <p className="mb-6 leading-7 text-muted-foreground">{githubProfile.bio}</p>
+            <div className="mb-6 grid gap-3 sm:grid-cols-4">
+              {[["Repositories", githubProfile.repositories, Code2], ["Followers", githubProfile.followers, Users], ["Following", githubProfile.following, CheckCircle2], ["Recent Events", githubProfile.recentEvents, Sparkles]].map(([label, value, Icon]) => {
+                const StatIcon = Icon as typeof Code2;
+                return (
+                  <div key={label as string} className="rounded-lg border border-border bg-background p-4">
+                    <StatIcon className="h-4 w-4 text-primary" />
+                    <p className="mt-3 text-2xl font-semibold">{value as number}</p>
+                    <p className="text-xs text-muted-foreground">{label as string}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mb-5 flex items-center gap-3"><Github className="h-5 w-5" /><h3 className="text-xl font-semibold">Contribution Rhythm</h3></div>
+            <div className="grid grid-cols-12 gap-2" aria-label="Visual GitHub contribution graph inspired by recent public activity">
+              {Array.from({ length: 84 }).map((_, index) => {
+                const active = [2, 3, 8, 14, 15, 16, 21, 27, 28, 29, 35, 42, 43, 44, 49, 50, 56, 61, 62, 63, 69, 70, 76, 77, 78, 82].includes(index);
+                return <div key={index} className={cn("aspect-square rounded-sm", active ? "bg-emerald-400" : index % 11 === 0 ? "bg-sky-500/80" : "bg-muted")} />;
+              })}
             </div>
           </Card>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-            {[["Repositories", "18", Code2], ["Stars", "42", Star], ["Followers", "126", Users], ["Recent Commits", "34", CheckCircle2]].map(([label, value, Icon]) => {
-              const StatIcon = Icon as typeof Code2;
-              return <Card key={label as string} className="p-5"><StatIcon className="h-5 w-5 text-primary" /><p className="mt-4 text-3xl font-semibold">{value as string}</p><p className="text-sm text-muted-foreground">{label as string}</p></Card>;
-            })}
+          <div className="grid gap-5">
+            <Card className="p-5">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="font-semibold">Public Repositories</h3>
+                <Badge>{githubRepos.length} shown</Badge>
+              </div>
+              <div className="grid gap-3">
+                {githubRepos.map((repo) => (
+                  <a key={repo.name} href={repo.url} target="_blank" rel="noreferrer" className="rounded-lg border border-border bg-background p-4 transition hover:border-primary/60 hover:bg-muted">
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h4 className="font-semibold">{repo.name}</h4>
+                        <p className="mt-2 text-sm leading-6 text-muted-foreground">{repo.description}</p>
+                      </div>
+                      <ExternalLink className="h-4 w-4 shrink-0 text-muted-foreground" />
+                    </div>
+                    <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground">
+                      <span>{repo.language}</span>
+                      <span>{repo.updated}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </Card>
+            <Card className="p-5">
+              <h3 className="mb-4 font-semibold">Recent Public Activity</h3>
+              <div className="grid gap-3">
+                {githubActivity.map((activity) => (
+                  <div key={activity} className="flex items-start gap-3 rounded-md bg-background p-3 text-sm">
+                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <span className="text-muted-foreground">{activity}</span>
+                  </div>
+                ))}
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -406,9 +520,31 @@ export default function Home() {
         <SectionHeader eyebrow="Contact" title="Let’s build something useful." copy="For software engineering internships, full-stack development work, and collaborative project opportunities, send a focused message and start the conversation." />
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="grid gap-4">
-            {[[Mail, "Email", "nadasinthu09@gmail.com"], [Phone, "Phone", "+94 75 802 1244"], [Linkedin, "LinkedIn", "Sinthuha Nadesan"], [Github, "GitHub", "Sinthuha-n"], [MapPin, "Location", "Colombo, Sri Lanka"]].map(([Icon, label, value]) => {
-              const ContactIcon = Icon as typeof Mail;
-              return <Card key={label as string} className="flex items-center gap-4 p-5"><ContactIcon className="h-5 w-5 text-primary" /><div><p className="font-medium">{label as string}</p><p className="text-sm text-muted-foreground">{value as string}</p></div></Card>;
+            {[
+              { icon: Mail, label: "Email", value: "nadasinthu09@gmail.com", href: "mailto:nadasinthu09@gmail.com" },
+              { icon: Phone, label: "Phone", value: "+94 75 802 1244", href: "tel:+94758021244" },
+              { icon: Linkedin, label: "LinkedIn", value: "Sinthuha Nadesan" },
+              { icon: Github, label: "GitHub", value: "Sinthuha-n", href: githubProfile.url },
+              { icon: MapPin, label: "Location", value: "Colombo, Sri Lanka" }
+            ].map(({ icon: ContactIcon, label, value, href }) => {
+              const content = (
+                <>
+                  <ContactIcon className="h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-medium">{label}</p>
+                    <p className="text-sm text-muted-foreground">{value}</p>
+                  </div>
+                  {href ? <ExternalLink className="ml-auto h-4 w-4 text-muted-foreground" /> : null}
+                </>
+              );
+              if (href) {
+                return (
+                  <Card key={label} asChild className="flex items-center gap-4 p-5 transition hover:border-primary/60 hover:bg-muted">
+                    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>{content}</a>
+                  </Card>
+                );
+              }
+              return <Card key={label} className="flex items-center gap-4 p-5">{content}</Card>;
             })}
           </div>
           <Card className="p-6">

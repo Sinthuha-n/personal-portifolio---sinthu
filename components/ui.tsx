@@ -43,10 +43,12 @@ Button.displayName = "Button";
 
 export function Card({
   className,
+  asChild = false,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.HTMLAttributes<HTMLDivElement> & { asChild?: boolean }) {
+  const Comp = asChild ? Slot : "div";
   return (
-    <div
+    <Comp
       className={cn(
         "rounded-lg border border-border bg-card/80 text-card-foreground shadow-sm backdrop-blur-xl",
         className
@@ -70,4 +72,3 @@ export function Badge({
     />
   );
 }
-
