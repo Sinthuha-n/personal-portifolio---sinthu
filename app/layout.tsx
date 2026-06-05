@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 export const metadata: Metadata = {
   title: "Sinthuha Nadesan | Software Engineering Intern",
   description:
-    "Modern portfolio for Sinthuha Nadesan, a Software Engineering Intern and IT Undergraduate at the University of Moratuwa building full stack applications.",
+    "Portfolio for Sinthuha Nadesan, a Software Engineering Intern and IT Undergraduate at the University of Moratuwa specializing in Java, Spring Boot, React, REST APIs, and full-stack development.",
   keywords: [
     "Sinthuha Nadesan",
     "Software Engineering Intern",
@@ -13,11 +13,13 @@ export const metadata: Metadata = {
     "Java Developer",
     "Spring Boot",
     "React",
+    "MERN",
+    "REST APIs",
     "University of Moratuwa"
   ],
   openGraph: {
     title: "Sinthuha Nadesan | Software Engineering Intern",
-    description: "Full stack portfolio featuring projects, certifications, blogs, GitHub activity, and contact details.",
+    description: "Full-stack portfolio featuring BookNest, certifications, skills, education, and contact details.",
     type: "website"
   }
 };

@@ -21,6 +21,7 @@ import {
   MapPin,
   Menu,
   Moon,
+  Phone,
   Search,
   Send,
   Sparkles,
@@ -35,34 +36,34 @@ import { useTheme } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 const navItems = ["About", "Skills", "Projects", "Blog", "GitHub", "Contact"];
-const typingWords = ["Java Developer", "Spring Boot Developer", "React Developer", "Full Stack Developer", "Problem Solver"];
+const typingWords = ["Java Developer", "Spring Boot Developer", "React Developer", "MERN Developer", "Problem Solver"];
 
 const skills = [
   { group: "Programming Languages", items: [["Java", 88], ["JavaScript", 84], ["Python", 74], ["C", 68]] },
-  { group: "Frontend", items: [["React", 86], ["HTML", 92], ["CSS", 88], ["Tailwind", 82]] },
-  { group: "Backend", items: [["Spring Boot", 84], ["REST APIs", 87], ["Node.js", 72]] },
-  { group: "Database", items: [["MySQL", 82], ["PostgreSQL", 76], ["MongoDB", 72]] },
-  { group: "Tools", items: [["Git", 84], ["GitHub", 85], ["Postman", 88], ["VS Code", 90]] }
+  { group: "Frontend", items: [["React", 86], ["HTML5", 92], ["CSS3", 88], ["Responsive UI", 82]] },
+  { group: "Backend", items: [["Spring Boot", 78], ["REST API Fundamentals", 86], ["Node.js", 76], ["Express.js", 74]] },
+  { group: "Database", items: [["MySQL", 82], ["PostgreSQL", 76], ["MongoDB", 74]] },
+  { group: "Tools", items: [["Git", 84], ["GitHub", 85], ["Postman", 88], ["Agile Practices", 76]] }
 ];
 
 const projects = [
   {
-    name: "Planora",
-    subtitle: "Project Management Platform",
-    description: "A full stack planning workspace for Kanban workflows, sprint management, timelines, task ownership, and team collaboration.",
-    tech: ["Spring Boot", "Next.js", "React Native", "PostgreSQL"],
-    accent: "from-sky-500 to-emerald-400",
-    features: ["Kanban Board", "Sprint Management", "Timeline Tracking", "Team Collaboration"],
-    actions: ["Live Demo", "GitHub", "Case Study"]
+    name: "BookNest",
+    subtitle: "Full Stack MERN Web Application",
+    description: "A book enthusiast platform for exploring books and managing reading lists, built collaboratively in a 5-member team with secure authentication, admin/user dashboards, and responsive UI.",
+    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Git"],
+    accent: "from-rose-500 to-amber-300",
+    features: ["Secure Auth", "Admin Dashboard", "User Dashboard", "Reading Lists"],
+    actions: ["Live Demo", "GitHub"]
   },
   {
-    name: "BookNest",
-    subtitle: "Book Discovery Platform",
-    description: "A discovery platform with authentication, dashboards, saved collections, and a clean reading-first product experience.",
-    tech: ["React", "Node.js", "Express", "MongoDB"],
-    accent: "from-rose-500 to-amber-300",
-    features: ["Auth Flows", "Reader Dashboard", "Saved Books", "API Integration"],
-    actions: ["Live Demo", "GitHub"]
+    name: "Planora",
+    subtitle: "Project Management Platform",
+    description: "A planned full stack project management platform concept for Kanban workflows, sprint planning, timelines, task ownership, and team collaboration.",
+    tech: ["Spring Boot", "Next.js", "PostgreSQL", "REST APIs"],
+    accent: "from-sky-500 to-emerald-400",
+    features: ["Kanban Board", "Sprint Planning", "Timeline Tracking", "Team Workflows"],
+    actions: ["Case Study"]
   }
 ];
 
@@ -265,18 +266,18 @@ export default function Home() {
       </section>
 
       <section id="about" className="px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="About" title="A builder with strong product instincts." copy="Sinthuha is a motivated IT undergraduate focused on Java, Spring Boot, React, REST APIs, and database-backed application design." />
+        <SectionHeader eyebrow="About" title="A builder with strong product instincts." copy="Motivated IT undergraduate with a strong foundation in full-stack development, specializing in Java, Spring Boot, React, REST APIs, and database-backed application design." />
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <Card className="p-6">
             <div className="flex items-center gap-4">
               <Image src="/images/developer-avatar.png" alt="Profile image" width={96} height={96} unoptimized className="h-24 w-24 rounded-lg object-cover" />
               <div>
                 <h3 className="text-2xl font-semibold">Sinthuha Nadesan</h3>
-                <p className="mt-1 text-muted-foreground">IT Undergraduate, University of Moratuwa</p>
+                <p className="mt-1 text-muted-foreground">Software Engineering Intern | IT Undergraduate</p>
               </div>
             </div>
             <div className="mt-6 grid gap-3 text-sm">
-              {[[MapPin, "Location", "Sri Lanka"], [GraduationCap, "Education", "BSc (Hons) Information Technology"], [BookOpen, "Languages", "English, Tamil, Sinhala"]].map(([Icon, label, value]) => {
+              {[[MapPin, "Location", "Colombo, Sri Lanka"], [GraduationCap, "Education", "BSc (Hons) Information Technology"], [BookOpen, "Languages", "English, Tamil (Native)"]].map(([Icon, label, value]) => {
                 const ItemIcon = Icon as typeof MapPin;
                 return <div key={label as string} className="flex items-center gap-3 rounded-md bg-muted p-3"><ItemIcon className="h-4 w-4 text-primary" /><span className="text-muted-foreground">{label as string}</span><span className="ml-auto font-medium">{value as string}</span></div>;
               })}
@@ -285,9 +286,9 @@ export default function Home() {
           <div className="grid gap-4">
             {[
               ["2024", "Frontend Development Certification", "Built a polished foundation in responsive user interfaces."],
-              ["2025", "SQL Career Track and Postman API Certification", "Strengthened database querying and API testing workflows."],
-              ["2026", "Software Engineering Internship Journey", "Focused on production-grade full stack development."],
-              ["Current", "Building Full Stack Applications", "Shipping portfolio projects with clear architecture and user value."]
+              ["2025", "SQL Career Track, HackerRank SQL, and Postman API Fundamental", "Strengthened database querying, SQL problem solving, and API testing workflows."],
+              ["2028", "Expected Graduation", "BSc (Hons) in Information Technology at University of Moratuwa, Sri Lanka."],
+              ["Current", "Seeking a Software Engineering Internship", "Ready to contribute to high-impact development teams with full-stack project experience."]
             ].map(([year, title, copy]) => (
               <Card key={year} className="grid gap-2 p-5 sm:grid-cols-[96px_1fr]">
                 <div className="text-sm font-semibold text-primary">{year}</div>
@@ -346,12 +347,12 @@ export default function Home() {
       </section>
 
       <section id="experience" className="bg-muted/45 px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="Experience" title="Developer journey shaped by practice." copy="A focused timeline spanning university projects, certifications, IEEE activities, technical workshops, hackathons, and volunteer experience." />
+        <SectionHeader eyebrow="Experience" title="Developer journey shaped by practice." copy="A focused timeline spanning university coursework, full-stack project work, certifications, teamwork, and software engineering fundamentals." />
         <div className="mx-auto grid max-w-5xl gap-4">
-          {["University Projects", "Frontend Development Certification", "IEEE Activities", "Technical Workshops", "Hackathons", "Volunteer Experience"].map((item, index) => (
+          {["Object-Oriented Programming", "Database Management Systems", "Data Structures & Algorithms", "Software Engineering", "Web Application Development", "Team-Based MERN Project"].map((item, index) => (
             <Card key={item} className="flex items-center gap-4 p-5">
               <div className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-foreground text-background">{index + 1}</div>
-              <div><h3 className="font-semibold">{item}</h3><p className="text-sm text-muted-foreground">Applied engineering habits through collaboration, demos, documentation, and iterative delivery.</p></div>
+              <div><h3 className="font-semibold">{item}</h3><p className="text-sm text-muted-foreground">Relevant coursework and project practice from the University of Moratuwa IT degree and BookNest team development.</p></div>
             </Card>
           ))}
         </div>
@@ -399,7 +400,7 @@ export default function Home() {
       <section id="achievements" className="px-4 py-24 sm:px-6 lg:px-8">
         <SectionHeader eyebrow="Achievements" title="Credentials that support the story." copy="Certificate cards highlight focused learning in frontend development, SQL, API fundamentals, and problem solving." />
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {["Frontend Development", "SQL Career Track", "Postman API Fundamentals", "HackerRank SQL"].map((item) => (
+          {["Frontend Web Development - University of Moratuwa (Dec 2024)", "SQL Career Track - DataCamp (Jan 2025)", "HackerRank SQL (Feb 2025)", "Postman API Fundamental - Postman (Sep 2025)"].map((item) => (
             <Card key={item} className="p-5">
               <Award className="h-6 w-6 text-primary" />
               <h3 className="mt-6 font-semibold">{item}</h3>
@@ -417,10 +418,10 @@ export default function Home() {
       </section>
 
       <section id="contact" className="px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="Contact" title="Let’s build something useful." copy="For internships, collaborations, open source, and full stack product work, send a focused message and start the conversation." />
+        <SectionHeader eyebrow="Contact" title="Let’s build something useful." copy="For software engineering internships, full-stack development work, and collaborative project opportunities, send a focused message and start the conversation." />
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="grid gap-4">
-            {[[Mail, "Email", "sinthuha@example.com"], [Linkedin, "LinkedIn", "linkedin.com/in/sinthuha-nadesan"], [Github, "GitHub", "github.com/sinthuha"], [MapPin, "Location", "Sri Lanka"]].map(([Icon, label, value]) => {
+            {[[Mail, "Email", "nadasinthu09@gmail.com"], [Phone, "Phone", "+94 75 802 1244"], [Linkedin, "LinkedIn", "Sinthuha Nadesan"], [Github, "GitHub", "Sinthuha-n"], [MapPin, "Location", "Colombo, Sri Lanka"]].map(([Icon, label, value]) => {
               const ContactIcon = Icon as typeof Mail;
               return <Card key={label as string} className="flex items-center gap-4 p-5"><ContactIcon className="h-5 w-5 text-primary" /><div><p className="font-medium">{label as string}</p><p className="text-sm text-muted-foreground">{value as string}</p></div></Card>;
             })}
