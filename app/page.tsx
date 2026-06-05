@@ -20,6 +20,7 @@ import {
   Mail,
   MapPin,
   Menu,
+  MessageCircle,
   Moon,
   Phone,
   Search,
@@ -68,15 +69,33 @@ const projects = [
 ];
 
 const blogs = [
-  ["Web Development", "How I Built a Project Management Platform using Spring Boot and React", "7 min read", "1.8k"],
-  ["Software Engineering", "Lessons Learned from My First Full Stack Project", "5 min read", "1.2k"],
-  ["Career Growth", "Version Control Best Practices for Students", "4 min read", "920"],
-  ["Cloud Computing", "Understanding REST APIs", "6 min read", "1.4k"],
-  ["Artificial Intelligence", "Getting Started with Spring Boot", "8 min read", "2.1k"],
-  ["Database Systems", "Designing Reliable SQL Schemas for Student Projects", "6 min read", "760"]
+  {
+    category: "Software Engineering",
+    title: "Why Version Control Is the Backbone of Software Development?",
+    read: "8 min read",
+    date: "May 27, 2026",
+    views: "Medium",
+    url: "https://medium.com/linkit-intecs/why-version-control-is-the-backbone-of-software-development-8ef3e09fb90a"
+  },
+  {
+    category: "Technology",
+    title: "Social Media:Behind the Screen",
+    read: "9 min read",
+    date: "May 14, 2026",
+    views: "Medium",
+    url: "https://medium.com/@sinthuhanadesan/social-media-behind-the-screen-f8f443c20ccd"
+  },
+  {
+    category: "Artificial Intelligence",
+    title: "When Code Gets a Vibe: Is AI About to Steal Your Keyboard?",
+    read: "7 min read",
+    date: "Dec 3, 2025",
+    views: "Medium",
+    url: "https://medium.com/@sinthuhanadesan/when-code-gets-a-vibe-is-ai-about-to-steal-your-keyboard-25cd83f596bc"
+  }
 ];
 
-const categories = ["All", "Web Development", "Software Engineering", "Cloud Computing", "Artificial Intelligence", "Database Systems", "Career Growth"];
+const categories = ["All", "Software Engineering", "Technology", "Artificial Intelligence"];
 
 const githubProfile = {
   name: "Sinthuha Nadesan",
@@ -93,6 +112,7 @@ const githubProfile = {
 };
 
 const linkedinUrl = "https://www.linkedin.com/in/sinthuha-nadesan-16nn11";
+const mediumUrl = "https://medium.com/@sinthuhanadesan";
 
 const githubRepos = [
   {
@@ -212,9 +232,9 @@ export default function Home() {
 
   const filteredBlogs = useMemo(
     () =>
-      blogs.filter(([category, title]) => {
-        const matchesCategory = blogFilter === "All" || category === blogFilter;
-        const matchesSearch = title.toLowerCase().includes(blogSearch.toLowerCase());
+      blogs.filter((blog) => {
+        const matchesCategory = blogFilter === "All" || blog.category === blogFilter;
+        const matchesSearch = blog.title.toLowerCase().includes(blogSearch.toLowerCase());
         return matchesCategory && matchesSearch;
       }),
     [blogFilter, blogSearch]
@@ -398,7 +418,7 @@ export default function Home() {
       </section>
 
       <section id="blog" className="px-4 py-24 sm:px-6 lg:px-8">
-        <SectionHeader eyebrow="Blog" title="Technical writing for learning in public." copy="A recruiter-friendly blog surface with category filtering, search, reading time, views, likes, sharing, and newsletter capture." />
+        <SectionHeader eyebrow="Blog" title="Technical writing from Medium." copy="Articles published by Sinthuha Nadesan on Medium, with searchable categories and direct links to read the full posts." />
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row">
             <div className="flex flex-1 items-center gap-3 rounded-lg border border-border bg-card px-4"><Search className="h-4 w-4 text-muted-foreground" /><input value={blogSearch} onChange={(event) => setBlogSearch(event.target.value)} placeholder="Search articles" className="h-12 w-full bg-transparent text-sm outline-none" /></div>
@@ -406,12 +426,12 @@ export default function Home() {
           </div>
           <div className="mb-8 flex gap-2 overflow-x-auto pb-2">{categories.map((category) => <Button key={category} variant={blogFilter === category ? "default" : "secondary"} onClick={() => setBlogFilter(category)}>{category}</Button>)}</div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {filteredBlogs.map(([category, title, read, views], index) => (
-              <Card key={title} className="p-5">
-                <Badge>{category}</Badge>
-                <h3 className="mt-4 min-h-20 text-lg font-semibold leading-7">{title}</h3>
-                <div className="mt-5 flex items-center justify-between text-sm text-muted-foreground"><span>{read}</span><span>{views} views</span></div>
-                <div className="mt-5 flex gap-2"><Button variant="secondary"><Heart className="h-4 w-4" />{120 + index * 14}</Button><Button variant="ghost">Share</Button></div>
+            {filteredBlogs.map((blog, index) => (
+              <Card key={blog.title} className="p-5">
+                <Badge>{blog.category}</Badge>
+                <h3 className="mt-4 min-h-20 text-lg font-semibold leading-7">{blog.title}</h3>
+                <div className="mt-5 flex items-center justify-between text-sm text-muted-foreground"><span>{blog.read}</span><span>{blog.date}</span></div>
+                <div className="mt-5 flex gap-2"><Button asChild variant="secondary"><a href={blog.url} target="_blank" rel="noreferrer"><ExternalLink className="h-4 w-4" />Read on Medium</a></Button><Button variant="ghost"><Heart className="h-4 w-4" />{120 + index * 14}</Button></div>
               </Card>
             ))}
           </div>
@@ -526,6 +546,7 @@ export default function Home() {
               { icon: Mail, label: "Email", value: "nadasinthu09@gmail.com", href: "mailto:nadasinthu09@gmail.com" },
               { icon: Phone, label: "Phone", value: "+94 75 802 1244", href: "tel:+94758021244" },
               { icon: Linkedin, label: "LinkedIn", value: "Sinthuha Nadesan", href: linkedinUrl },
+              { icon: MessageCircle, label: "Medium", value: "Sinthuha Nadesan", href: mediumUrl },
               { icon: Github, label: "GitHub", value: "Sinthuha-n", href: githubProfile.url },
               { icon: MapPin, label: "Location", value: "Colombo, Sri Lanka" }
             ].map(({ icon: ContactIcon, label, value, href }) => {
