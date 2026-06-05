@@ -242,6 +242,19 @@ export default function Home() {
 
   function handleContact(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const subject = String(formData.get("subject") ?? "Portfolio contact");
+    const message = String(formData.get("message") ?? "");
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      "",
+      message
+    ].join("\n");
+
+    window.location.href = `mailto:nadasinthu09@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   }
 
@@ -572,10 +585,10 @@ export default function Home() {
           </div>
           <Card className="p-6">
             <form className="grid gap-4" onSubmit={handleContact}>
-              <div className="grid gap-4 sm:grid-cols-2"><input required placeholder="Name" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" /><input required type="email" placeholder="Email" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" /></div>
-              <input required placeholder="Subject" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" />
-              <textarea required placeholder="Message" rows={6} className="rounded-md border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
-              <Button type="submit"><Send className="h-4 w-4" />{sent ? "Message Ready" : "Send Message"}</Button>
+              <div className="grid gap-4 sm:grid-cols-2"><input required name="name" placeholder="Name" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" /><input required name="email" type="email" placeholder="Email" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" /></div>
+              <input required name="subject" placeholder="Subject" className="h-12 rounded-md border border-border bg-background px-4 outline-none focus:ring-2 focus:ring-primary" />
+              <textarea required name="message" placeholder="Message" rows={6} className="rounded-md border border-border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary" />
+              <Button type="submit"><Send className="h-4 w-4" />{sent ? "Opening Email" : "Send Message"}</Button>
             </form>
           </Card>
         </div>
