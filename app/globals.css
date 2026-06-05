@@ -40,16 +40,6 @@ body {
   color: hsl(var(--foreground));
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body,
-  button,
-  a,
-  input,
-  textarea {
-    cursor: none;
-  }
-}
-
 ::selection {
   background: hsl(var(--primary) / 0.25);
 }

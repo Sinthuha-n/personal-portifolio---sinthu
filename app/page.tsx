@@ -89,22 +89,7 @@ function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: strin
 }
 
 function CustomCursor() {
-  const [point, setPoint] = useState({ x: -100, y: -100 });
-
-  useEffect(() => {
-    const move = (event: PointerEvent) => setPoint({ x: event.clientX, y: event.clientY });
-    window.addEventListener("pointermove", move);
-    return () => window.removeEventListener("pointermove", move);
-  }, []);
-
-  return (
-    <motion.div
-      aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-50 hidden h-5 w-5 rounded-full border border-primary/70 bg-primary/15 backdrop-blur md:block"
-      animate={{ x: point.x - 10, y: point.y - 10 }}
-      transition={{ type: "spring", stiffness: 500, damping: 35 }}
-    />
-  );
+  return null;
 }
 
 function CommandPalette({
