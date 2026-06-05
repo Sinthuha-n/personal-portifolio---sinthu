@@ -36,18 +36,18 @@ export const featuredProject = {
   subtitle: "Full Stack Project Management Platform",
   status: "Hero Project",
   summary:
-    "A product management workspace designed around the workflows software teams use every day: Kanban planning, sprint execution, timeline visibility, and mobile access.",
+    "A product management workspace designed around the workflows software teams use every day: Kanban planning, task execution, timeline visibility, and mobile access.",
   problem:
-    "Student and startup teams often manage work across scattered chats, spreadsheets, and issue lists. Planora brings planning, task ownership, sprint status, and mobile updates into one product flow.",
+    "Student and startup teams often manage work across scattered chats, spreadsheets, and issue lists. Planora brings planning, task ownership, board status, and mobile updates into one product flow.",
   achievements: [
     "Designed Kanban-first workflow for task visibility and team coordination",
-    "Structured sprint management around backlog, active work, review, and completion",
+    "Structured board management around backlog, active work, review, and completion",
     "Mapped timeline tracking for progress reviews and delivery planning",
     "Planned Spring Boot REST architecture with PostgreSQL-backed data models",
     "Included React Native mobile app direction for on-the-go project updates"
   ],
   challenges: [
-    "Keeping task state consistent across board, sprint, and timeline views",
+    "Keeping task state consistent across board, priority, and timeline views",
     "Designing a clean API boundary between product UI and backend workflow logic",
     "Making dense project information scannable for repeated daily use"
   ],
@@ -143,7 +143,8 @@ export const githubProfile = {
   repositories: 15,
   followers: 7,
   following: 15,
-  recentEvents: 30
+  recentEvents: 30,
+  totalContributions: "30+"
 };
 
 export const linkedinUrl = "https://www.linkedin.com/in/sinthuha-nadesan-16nn11";
@@ -179,6 +180,8 @@ export const githubRepos = [
     url: "https://github.com/Sinthuha-n/Student_Managemant"
   }
 ] as const;
+
+export const pinnedRepositories = githubRepos.slice(0, 4);
 
 export const githubActivity = [
   "Pushed updates to personal-portifolio---sinthu",

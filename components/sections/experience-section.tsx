@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap } from "lucide-react";
 import { SectionHeader } from "@/components/common/section-header";
 import { Badge, Card } from "@/components/ui";
 import { timelineItems } from "@/data/portfolio";
@@ -12,6 +12,21 @@ export function ExperienceSection() {
         copy="Certifications, coursework, API practice, and project work are framed as a clear progression toward internship-ready engineering."
       />
       <div className="mx-auto max-w-5xl">
+        <Card className="mb-6 border-primary/25 bg-card/90 p-6 md:p-7">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex gap-4">
+              <div className="rounded-lg border border-primary/30 bg-primary/10 p-3 text-primary">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Education</p>
+                <h3 className="mt-2 text-2xl font-semibold md:text-3xl">BSc (Hons) in Information Technology</h3>
+                <p className="mt-2 text-lg text-muted-foreground">University of Moratuwa</p>
+              </div>
+            </div>
+            <Badge>Sri Lanka</Badge>
+          </div>
+        </Card>
         <div className="relative grid gap-4">
           <div className="absolute left-5 top-6 hidden h-[calc(100%-48px)] w-px bg-border md:block" />
           {timelineItems.map(([date, title, copy], index) => (

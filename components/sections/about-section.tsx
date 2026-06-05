@@ -1,37 +1,59 @@
-import Image from "next/image";
-import { BookOpen, GraduationCap, MapPin } from "lucide-react";
+import { BookOpen, Code2, GraduationCap, Languages, MapPin, Rocket, Smartphone, UserCheck } from "lucide-react";
 import { SectionHeader } from "@/components/common/section-header";
 import { Card } from "@/components/ui";
-import { timelineItems } from "@/data/portfolio";
+
+const summaryItems = [
+  [Code2, "Full Stack Developer"],
+  [Rocket, "Software Engineering Enthusiast"],
+  [Smartphone, "Interested in Web & Mobile Development"],
+  [BookOpen, "Passionate about building scalable applications"]
+] as const;
+
+const profileDetails = [
+  [MapPin, "Location", "Colombo, Sri Lanka"],
+  [GraduationCap, "Education", "BSc (Hons) in Information Technology\nUniversity of Moratuwa"],
+  [Languages, "Languages", "English\nTamil"],
+  [UserCheck, "Status", "Software Engineering Intern Candidate"]
+] as const;
 
 export function AboutSection() {
   return (
     <section id="about" className="px-4 py-16 sm:px-6 lg:px-8">
-      <SectionHeader eyebrow="About" title="A builder with strong product instincts." copy="Motivated IT undergraduate with a strong foundation in full-stack development, specializing in Java, Spring Boot, React, REST APIs, and database-backed application design." />
-      <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <Card className="p-6">
-          <div className="flex items-center gap-4">
-            <Image src="/images/developer-avatar.png" alt="Profile image" width={96} height={96} unoptimized className="h-24 w-24 rounded-lg object-cover" />
-            <div>
-              <h3 className="text-2xl font-semibold">Sinthuha Nadesan</h3>
-              <p className="mt-1 text-muted-foreground">Software Engineering Intern | IT Undergraduate</p>
-            </div>
-          </div>
-          <div className="mt-6 grid gap-3 text-sm">
-            {[[MapPin, "Location", "Colombo, Sri Lanka"], [GraduationCap, "Education", "BSc (Hons) Information Technology"], [BookOpen, "Languages", "English, Tamil (Native)"]].map(([Icon, label, value]) => {
-              const ItemIcon = Icon as typeof MapPin;
-              return <div key={label as string} className="flex items-center gap-3 rounded-md bg-muted p-3"><ItemIcon className="h-4 w-4 text-primary" /><span className="text-muted-foreground">{label as string}</span><span className="ml-auto font-medium">{value as string}</span></div>;
-            })}
+      <SectionHeader
+        eyebrow="About"
+        title="Focused on practical full-stack engineering."
+        copy="A concise snapshot of Sinthuha's direction as a software engineering intern candidate."
+      />
+      <div className="mx-auto grid max-w-7xl items-stretch gap-6 lg:grid-cols-2">
+        <Card className="flex h-full flex-col p-6 md:min-h-[460px] md:p-7">
+          <h3 className="text-2xl font-semibold">Professional summary</h3>
+          <p className="mt-3 max-w-2xl leading-7 text-muted-foreground">
+            Full-stack developer and software engineering enthusiast interested in building scalable web and mobile applications.
+          </p>
+          <div className="mt-6 grid flex-1 gap-3 sm:grid-cols-2">
+            {summaryItems.map(([Icon, label]) => (
+              <div key={label} className="flex min-h-[96px] items-center gap-3 rounded-lg border border-border bg-background p-4">
+                <Icon className="h-5 w-5 shrink-0 text-primary" />
+                <span className="font-medium leading-6">{label}</span>
+              </div>
+            ))}
           </div>
         </Card>
-        <div className="grid gap-4">
-          {timelineItems.map(([year, title, copy]) => (
-            <Card key={year} className="grid gap-2 p-5 sm:grid-cols-[96px_1fr]">
-              <div className="text-sm font-semibold text-primary">{year}</div>
-              <div><h3 className="font-semibold">{title}</h3><p className="mt-1 text-sm leading-6 text-muted-foreground">{copy}</p></div>
-            </Card>
-          ))}
-        </div>
+
+        <Card className="flex h-full flex-col p-6 md:min-h-[460px] md:p-7">
+          <h3 className="text-2xl font-semibold">Profile details</h3>
+          <div className="mt-6 grid flex-1 gap-3">
+            {profileDetails.map(([Icon, label, value]) => (
+              <div key={label} className="grid min-h-[84px] gap-3 rounded-lg border border-border bg-background p-4 sm:grid-cols-[160px_1fr]">
+                <div className="flex items-center gap-3 text-sm font-medium text-muted-foreground">
+                  <Icon className="h-4 w-4 text-primary" />
+                  {label}
+                </div>
+                <div className="whitespace-pre-line font-semibold leading-7 text-foreground">{value}</div>
+              </div>
+            ))}
+          </div>
+        </Card>
       </div>
     </section>
   );
