@@ -197,10 +197,48 @@ export const coursework = [
 ];
 
 export const certifications = [
-  "Frontend Web Development - University of Moratuwa (Dec 2024)",
-  "SQL Career Track - DataCamp (Jan 2025)",
-  "HackerRank SQL (Feb 2025)",
-  "Postman API Fundamental - Postman (Sep 2025)"
-];
+  {
+    title: "Frontend Web Development",
+    issuer: "University of Moratuwa",
+    date: "Dec 2024",
+    focus: "Responsive interfaces and web application structure.",
+    image: "/images/Frontend Web Development - University of Moratuwa.jpeg"
+  },
+  {
+    title: "SQL Career Track",
+    issuer: "DataCamp",
+    date: "Jan 2025",
+    focus: "Relational querying, schema thinking, and data problem solving.",
+    image: "/images/SQL Career Track - DataCamp.jpeg"
+  },
+  {
+    title: "HackerRank SQL",
+    issuer: "HackerRank",
+    date: "Feb 2025",
+    focus: "SQL fundamentals validated through practical challenges.",
+    image: "/images/HackerRank SQL.jpeg"
+  },
+  {
+    title: "Software Engineering Essentials",
+    issuer: "IBM Skills Network",
+    date: "Apr 2025",
+    focus: "Core software engineering practices and professional foundations.",
+    image: "/images/software Engineering essential.jpeg"
+  },
+  {
+    title: "Postman API Fundamentals",
+    issuer: "Postman",
+    date: "Sep 2025",
+    focus: "REST API testing, requests, collections, and integration workflow.",
+    image: "/images/Postman API Fundamental - Postman.jpeg"
+  },
+  {
+    title: "AWS AI Practitioner Challenge",
+    issuer: "Udacity",
+    date: "Jun 2026",
+    focus: "AI practitioner foundations with AWS-aligned learning.",
+    image: "/images/tailwind.config.jpeg"
+  }
+] as const;
 
 export const testimonialRoles = ["Lecturer", "Mentor", "Team Member", "Manager"];
