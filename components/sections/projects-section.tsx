@@ -63,6 +63,7 @@ function PlanoraMockup() {
 export function ProjectsSection() {
   const [caseStudyOpen, setCaseStudyOpen] = useState(false);
   const standoutAchievement = featuredProject.achievements[0];
+  const featuredLinks = featuredProject.links as Partial<Record<"github" | "demo", string>>;
 
   return (
     <section id="projects" className="px-4 py-16 sm:px-6 lg:px-8">
@@ -90,8 +91,12 @@ export function ProjectsSection() {
               </div>
 
               <div className="mt-7 flex flex-wrap gap-3">
-                <Button asChild><a href={featuredProject.links.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4" />GitHub</a></Button>
-                <Button asChild variant="secondary"><a href={featuredProject.links.demo} target="_blank" rel="noreferrer"><ExternalLink className="h-4 w-4" />Live Demo</a></Button>
+                {featuredLinks.github ? (
+                  <Button asChild><a href={featuredLinks.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4" />GitHub</a></Button>
+                ) : null}
+                {featuredLinks.demo ? (
+                  <Button asChild variant="secondary"><a href={featuredLinks.demo} target="_blank" rel="noreferrer"><ExternalLink className="h-4 w-4" />Live Demo</a></Button>
+                ) : null}
                 <Button type="button" variant="ghost" onClick={() => setCaseStudyOpen(true)}>View Case Study<ArrowRight className="h-4 w-4" /></Button>
               </div>
             </div>
@@ -168,8 +173,12 @@ export function ProjectsSection() {
             </div>
 
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button asChild><a href={featuredProject.links.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4" />Inspect Repository</a></Button>
-              <Button asChild variant="secondary"><a href={featuredProject.links.demo} target="_blank" rel="noreferrer"><ExternalLink className="h-4 w-4" />Open Demo</a></Button>
+              {featuredLinks.github ? (
+                <Button asChild><a href={featuredLinks.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4" />Inspect Repository</a></Button>
+              ) : null}
+              {featuredLinks.demo ? (
+                <Button asChild variant="secondary"><a href={featuredLinks.demo} target="_blank" rel="noreferrer"><ExternalLink className="h-4 w-4" />Open Demo</a></Button>
+              ) : null}
             </div>
           </Card>
         </div>

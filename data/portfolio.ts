@@ -57,12 +57,8 @@ export const featuredProject = {
     ["REST", "API architecture"],
     ["PostgreSQL", "Primary database"]
   ],
-  tech: ["Spring Boot", "Next.js", "React Native", "PostgreSQL", "REST APIs", "GitHub"],
-  links: {
-    github: "https://github.com/Sinthuha-n/project_management_app",
-    demo: "https://github.com/Sinthuha-n/project_management_app",
-    caseStudy: "https://github.com/Sinthuha-n/project_management_app"
-  }
+  tech: ["Spring Boot", "Next.js", "React Native", "PostgreSQL", "REST APIs"],
+  links: {}
 } as const;
 
 export const supportingProjects = [
@@ -159,13 +155,6 @@ export const githubRepos = [
     url: "https://github.com/Sinthuha-n/personal-portifolio---sinthu"
   },
   {
-    name: "project_management_app",
-    description: "Project management application work connected to responsive Kanban and app workflow improvements.",
-    language: "TypeScript",
-    updated: "Updated May 10, 2026",
-    url: "https://github.com/Sinthuha-n/project_management_app"
-  },
-  {
     name: "SpringBoot",
     description: "Learning and practicing Spring Boot fundamentals for backend development.",
     language: "Java",
@@ -185,8 +174,8 @@ export const pinnedRepositories = githubRepos.slice(0, 4);
 
 export const githubActivity = [
   "Pushed updates to personal-portifolio---sinthu",
-  "Merged pull request #290 in axzellinnovations/project_management_app",
-  "Opened responsive-mobile-kanban pull request work",
+  "Refined portfolio project presentation and responsive sections",
+  "Practiced pull request review workflow with team-based projects",
   "Created responsive branch for portfolio improvements"
 ];
 
