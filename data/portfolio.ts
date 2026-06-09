@@ -1,4 +1,15 @@
-export const navItems = ["About", "Skills", "Building", "Projects", "Blog", "GitHub", "Contact"];
+export const navItems = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Building", href: "#building" },
+  { label: "Projects", href: "#projects" },
+  { label: "Journey", href: "#experience" },
+  { label: "Blog", href: "#blog" },
+  { label: "GitHub", href: "#github" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "Contact", href: "#contact" }
+] as const;
 
 export const typingWords = [
   "Java Developer",

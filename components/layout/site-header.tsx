@@ -15,7 +15,7 @@ export function SiteHeader({ onOpenCommandPalette }: SiteHeaderProps) {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
-  const navTargets = useMemo(() => navItems.map((item) => item.toLowerCase()), []);
+  const navTargets = useMemo(() => navItems.map((item) => item.href.replace("#", "")), []);
 
   useEffect(() => {
     const sections = navTargets
@@ -70,23 +70,23 @@ export function SiteHeader({ onOpenCommandPalette }: SiteHeaderProps) {
           <span className="grid h-8 w-8 place-items-center rounded-md bg-foreground text-sm text-background">SN</span>
           <span>Sinthuha Nadesan</span>
         </a>
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-0.5 md:flex">
           {navItems.map((item) => {
-            const target = item.toLowerCase();
+            const target = item.href.replace("#", "");
             const isActive = activeSection === target;
 
             return (
               <a
-                key={item}
-                href={`#${target}`}
+                key={item.href}
+                href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 onClick={() => setActiveSection(target)}
                 className={cn(
-                  "relative rounded-md px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground",
-                  isActive && "bg-muted text-foreground after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:rounded-full after:bg-primary"
+                  "relative rounded-md px-2.5 py-2 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-foreground lg:text-sm",
+                  isActive && "bg-muted text-foreground after:absolute after:inset-x-2.5 after:bottom-1 after:h-0.5 after:rounded-full after:bg-primary"
                 )}
               >
-              {item}
+              {item.label}
               </a>
             );
           })}
@@ -106,13 +106,13 @@ export function SiteHeader({ onOpenCommandPalette }: SiteHeaderProps) {
       {menuOpen ? (
         <div className="border-t border-border bg-background px-4 py-3 md:hidden">
           {navItems.map((item) => {
-            const target = item.toLowerCase();
+            const target = item.href.replace("#", "");
             const isActive = activeSection === target;
 
             return (
               <a
-                key={item}
-                href={`#${target}`}
+                key={item.href}
+                href={item.href}
                 aria-current={isActive ? "page" : undefined}
                 onClick={() => {
                   setActiveSection(target);
@@ -123,7 +123,7 @@ export function SiteHeader({ onOpenCommandPalette }: SiteHeaderProps) {
                   isActive && "bg-muted font-medium text-foreground"
                 )}
               >
-              {item}
+              {item.label}
               </a>
             );
           })}
