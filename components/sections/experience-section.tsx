@@ -20,7 +20,10 @@ export function ExperienceSection() {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Education</p>
-                <h3 className="mt-2 text-2xl font-semibold md:text-3xl">BSc (Hons) in Information Technology</h3>
+                <div className="mt-2 flex flex-wrap items-center gap-3">
+                  <h3 className="text-2xl font-semibold md:text-3xl">BSc (Hons) in Information Technology</h3>
+                  <Badge>Expected graduation: 2028</Badge>
+                </div>
                 <p className="mt-2 text-lg text-muted-foreground">University of Moratuwa</p>
               </div>
             </div>
