@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Award, CalendarDays, RotateCcw, ShieldCheck } from "lucide-react";
 import { SectionHeader } from "@/components/common/section-header";
 import { Badge } from "@/components/ui";
@@ -9,6 +9,13 @@ import { cn } from "@/lib/utils";
 
 export function AchievementsSection() {
   const [flippedCards, setFlippedCards] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    certifications.forEach((certificate) => {
+      const image = new Image();
+      image.src = certificate.image;
+    });
+  }, []);
 
   const toggleCard = (title: string) => {
     setFlippedCards((current) => {
@@ -46,7 +53,7 @@ export function AchievementsSection() {
             >
               <div
                 className={cn(
-                  "relative h-full rounded-lg transition duration-700 [transform-style:preserve-3d]",
+                  "relative h-full rounded-lg transition duration-300 [transform-style:preserve-3d]",
                   isFlipped && "[transform:rotateY(180deg)]"
                 )}
               >
@@ -87,7 +94,7 @@ export function AchievementsSection() {
                         src={certificate.image}
                         alt={`${certificate.title} certificate`}
                         className="h-full w-full object-contain"
-                        loading="lazy"
+                        loading="eager"
                       />
                     </div>
                   </div>
