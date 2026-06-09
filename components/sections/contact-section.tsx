@@ -96,7 +96,7 @@ export function ContactSection() {
           </div>
         </div>
 
-        <Card className="border-primary/20 bg-[linear-gradient(145deg,hsl(var(--card)),hsl(var(--muted)))] p-6 shadow-[0_24px_90px_rgba(0,0,0,0.28)] md:p-7">
+        <Card className="border-primary/20 bg-[linear-gradient(145deg,hsl(var(--card)),hsl(var(--muted)))] p-6 shadow-[0_22px_70px_rgba(15,23,42,0.12)] dark:shadow-[0_24px_90px_rgba(0,0,0,0.28)] md:p-7">
           <div className="mb-6">
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">Send message</p>
             <h3 className="mt-2 text-2xl font-semibold">Start with the role, project, or collaboration idea.</h3>

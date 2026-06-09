@@ -73,7 +73,7 @@ export function ProjectsSection() {
         copy="A simplified recruiter-facing view: what was built, why it matters, the core stack, and where to inspect the work."
       />
       <div className="mx-auto max-w-7xl">
-        <Card className="overflow-hidden border-primary/20 bg-card/90 shadow-[0_24px_90px_rgba(0,0,0,0.26)]">
+        <Card className="overflow-hidden border-primary/20 bg-card/90 shadow-[0_22px_70px_rgba(15,23,42,0.12)] dark:shadow-[0_24px_90px_rgba(0,0,0,0.26)]">
           <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="p-6 md:p-8">
               <Badge className="mb-5">{featuredProject.status}</Badge>
@@ -127,7 +127,7 @@ export function ProjectsSection() {
 
       {caseStudyOpen ? (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 px-4 py-6 backdrop-blur-xl" role="dialog" aria-modal="true" aria-labelledby="planora-case-study">
-          <Card className="max-h-[88vh] w-full max-w-4xl overflow-y-auto border-primary/30 bg-card p-5 shadow-[0_30px_120px_rgba(0,0,0,0.55)] md:p-7">
+          <Card className="max-h-[88vh] w-full max-w-4xl overflow-y-auto border-primary/30 bg-card p-5 shadow-[0_30px_90px_rgba(15,23,42,0.18)] dark:shadow-[0_30px_120px_rgba(0,0,0,0.55)] md:p-7">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <Badge>{featuredProject.status}</Badge>

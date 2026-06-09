@@ -32,7 +32,7 @@ export function HeroSection() {
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.08 }} className="relative max-w-[620px] justify-self-end">
           <div className="absolute -inset-4 rounded-lg bg-gradient-to-br from-sky-500/20 via-emerald-400/10 to-rose-500/10 blur-2xl" />
-          <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
+          <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-[0_24px_80px_rgba(15,23,42,0.16)] dark:shadow-[0_30px_120px_rgba(0,0,0,0.45)]">
             <Image
               src="/images/hero-engineering-visual.svg"
               alt="Abstract full-stack engineering workspace visual"

@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: 210 40% 98%;
-  --foreground: 220 24% 10%;
+  --background: 210 38% 98%;
+  --foreground: 222 28% 11%;
   --card: 0 0% 100%;
-  --card-foreground: 220 24% 10%;
-  --muted: 204 34% 93%;
-  --muted-foreground: 215 13% 38%;
-  --border: 214 25% 84%;
-  --primary: 175 84% 38%;
+  --card-foreground: 222 28% 11%;
+  --muted: 205 45% 94%;
+  --muted-foreground: 218 14% 36%;
+  --border: 214 28% 86%;
+  --primary: 176 76% 34%;
   --primary-foreground: 0 0% 100%;
 }
 
@@ -37,9 +37,18 @@ html {
 body {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, hsl(var(--background)), hsl(220 30% 7%)),
+    radial-gradient(circle at 15% 0%, hsl(174 78% 88% / 0.42), transparent 34rem),
+    radial-gradient(circle at 85% 6%, hsl(216 90% 92% / 0.62), transparent 38rem),
+    radial-gradient(circle at 68% 42%, hsl(343 86% 94% / 0.28), transparent 32rem),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(208 34% 96%) 48%, hsl(210 34% 97%) 100%),
     hsl(var(--background));
   color: hsl(var(--foreground));
+}
+
+.dark body {
+  background:
+    linear-gradient(180deg, hsl(var(--background)), hsl(220 30% 7%)),
+    hsl(var(--background));
 }
 
 ::selection {
@@ -47,6 +56,14 @@ body {
 }
 
 .mesh-bg {
+  background:
+    radial-gradient(circle at 18% 18%, hsl(174 78% 80% / 0.24), transparent 34%),
+    radial-gradient(circle at 74% 16%, hsl(214 92% 82% / 0.2), transparent 30%),
+    radial-gradient(circle at 62% 82%, hsl(343 86% 84% / 0.13), transparent 26%),
+    linear-gradient(180deg, hsl(0 0% 100% / 0.38), transparent 70%);
+}
+
+.dark .mesh-bg {
   background:
     radial-gradient(circle at 18% 18%, rgba(45, 212, 191, 0.18), transparent 34%),
     radial-gradient(circle at 74% 16%, rgba(96, 165, 250, 0.13), transparent 30%),
